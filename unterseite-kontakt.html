@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Business KI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Complete override for contact page - new corporate design */
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --salbei-gruen: #6B8F71;
+            --moos-gruen: #335C4D;
+            --sand-beige: #E7E3D4;
+            --kalk-weiss: #F9F9F6;
+            --rostrot: #C4512D;
+            --dunkelgrau: #2A2A2A;
+            --hellgrau: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dunkelgrau);
+            background-color: var(--kalk-weiss);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(249, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(107, 143, 113, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 55px; /* Größeres Logo */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--moos-gruen);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--rostrot);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--rostrot);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-login {
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(107, 143, 113, 0.3);
+        }
+
+        .nav-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 143, 113, 0.4);
+        }
+
+        .nav-login::after {
+            display: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--moos-gruen);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Page Hero - GREEN GRADIENT */
+        .page-hero {
+            background: linear-gradient(135deg, var(--moos-gruen) 0%, var(--salbei-gruen) 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="network" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/><line x1="5" y1="5" x2="15" y2="15" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23network)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--kalk-weiss);
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contact-intro h2 {
+            font-size: 2.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .contact-intro p {
+            font-size: 1.2rem;
+            color: var(--dunkelgrau);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--salbei-gruen), var(--rostrot));
+        }
+
+        .contact-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(107, 143, 113, 0.2);
+            border-color: var(--salbei-gruen);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dunkelgrau);
+            margin-bottom: 25px;
+        }
+
+        .contact-link {
+            background: linear-gradient(135deg, var(--rostrot), #d45a34);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(196, 69, 45, 0.3);
+        }
+
+        /* Quote Section */
+        .quote-section-contact {
+            background: var(--sand-beige);
+            padding: 80px 0;
+            margin: 0;
+        }
+
+        .quote-box-contact {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 6px solid var(--salbei-gruen);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .quote-box-contact::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--salbei-gruen);
+            font-family: 'Montserrat', serif;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            opacity: 0.3;
+        }
+
+        .quote-contact {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--dunkelgrau);
+            line-height: 1.7;
+            text-align: center;
+            margin-left: 40px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--rostrot), #d45a34);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--moos-gruen);
+            padding: 18px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 250px;
+            justify-content: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: var(--kalk-weiss);
+        }
+
+        .cta-button i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--moos-gruen);
+            color: white;
+            padding: 50px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--rostrot);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-image {
+                height: 50px; /* Auch im mobile Bereich größer */
+            }
+
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--kalk-weiss);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                gap: 0;
+                padding: 20px 0;
+                border-radius: 0 0 15px 15px;
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+
+            .nav-item {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-box {
+                padding: 30px;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .quote-box-contact {
+                padding: 30px;
+                margin: 0 20px;
+            }
+
+            .quote-contact {
+                font-size: 1.1rem;
+                margin-left: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .page-hero {
+                padding: 120px 0 60px;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .quote-section-contact {
+                padding: 60px 0;
+            }
+
+            .cta {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <nav class="navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-angebot.html" class="nav-link">Unser Angebot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-unternehmen.html" class="nav-link">Unternehmen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-kontakt.html" class="nav-link active">Kontakt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-karriere.html" class="nav-link">Karriere</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://businesski.ai.tool.center/login" target="_blank" class="nav-link nav-login">Login KI Assistent</a>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Kontakt</h1>
+            <p>Lassen Sie uns gemeinsam Ihre KI-Zukunft gestalten</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-intro">
+                <h2>Nehmen Sie Kontakt mit uns auf</h2>
+                <p>Wir freuen uns darauf, Sie kennenzulernen und gemeinsam Ihre KI-Projekte zu realisieren</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Box 1: Kennenlerngespräch -->
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Kostenloses Kennenlerngespräch</h3>
+                    <p>Buchen Sie ein unverbindliches 15-minütiges Gespräch, um herauszufinden, wie KI Ihr Unternehmen voranbringen kann.</p>
+                    <a href="https://calendly.com/rominaadler/15-min-erstkontakt" target="_blank" class="contact-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        Termin buchen
+                    </a>
+                </div>
+
+                <!-- Contact Box 2: E-Mail Kontakt -->
+                <div class="contact-box">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Direkte Kontaktaufnahme</h3>
+                    <p>Schreiben Sie uns eine E-Mail mit Ihren Fragen oder Projektanfragen. Wir antworten schnell und kompetent.</p>
+                    <a href="mailto:ki@businesski.io" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        E-Mail senden
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section-contact">
+        <div class="container">
+            <div class="quote-box-contact">
+                <p class="quote-contact">Der beste Zeitpunkt, KI in Ihr Unternehmen zu integrieren, ist jetzt. Lassen Sie uns gemeinsam den ersten Schritt gehen und herausfinden, welche Möglichkeiten sich für Sie eröffnen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Bereit für den nächsten Schritt?</h2>
+            <p>Kontaktieren Sie uns noch heute und starten Sie Ihre KI-Transformation.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/rominaadler/15-min-erstkontakt" target="_blank" class="cta-button">
+                    <i class="fas fa-rocket"></i>
+                    Jetzt durchstarten
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo-white.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Business KI. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

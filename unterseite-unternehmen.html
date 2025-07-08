@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unternehmen - Business KI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .page-hero {
+            background: linear-gradient(135deg, var(--moos-gruen) 0%, var(--salbei-gruen) 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-section {
+            padding: 100px 0;
+            background-color: var(--sand-beige);
+        }
+
+        .timeline-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-intro h2 {
+            font-size: 2.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .timeline-intro p {
+            font-size: 1.2rem;
+            color: var(--dunkelgrau);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, var(--salbei-gruen), var(--rostrot));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 20px 0;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--rostrot);
+            border: 4px solid white;
+            top: 35px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+            padding-right: 40px;
+        }
+
+        .timeline-item.left::after {
+            right: -12px;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+            padding-left: 40px;
+        }
+
+        .timeline-item.right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--salbei-gruen);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(107, 143, 113, 0.2);
+        }
+
+        .timeline-year {
+            background: linear-gradient(135deg, var(--rostrot), #d45a34);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--moos-gruen);
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            color: var(--dunkelgrau);
+            line-height: 1.6;
+        }
+
+        .values-section {
+            padding: 100px 0;
+            background: var(--kalk-weiss);
+        }
+
+        .values-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .values-intro h2 {
+            font-size: 2.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(107, 143, 113, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--salbei-gruen), var(--rostrot));
+        }
+
+        .value-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(107, 143, 113, 0.15);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .value-item h3 {
+            font-size: 1.3rem;
+            color: var(--moos-gruen);
+            margin-bottom: 15px;
+        }
+
+        .value-item p {
+            color: var(--dunkelgrau);
+            line-height: 1.6;
+        }
+
+        .nav-link.active {
+            color: var(--rostrot);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 20px;
+                text-align: left;
+            }
+
+            .timeline-item.left {
+                left: 0;
+                text-align: left;
+                padding-right: 20px;
+            }
+
+            .timeline-item.right {
+                left: 0;
+                padding-left: 50px;
+            }
+
+            .timeline-item::after {
+                left: 8px;
+            }
+
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 8px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <nav class="navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-angebot.html" class="nav-link">Unser Angebot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-unternehmen.html" class="nav-link active">Unternehmen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-kontakt.html" class="nav-link">Kontakt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-karriere.html" class="nav-link">Karriere</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://businesski.ai.tool.center/login" target="_blank" class="nav-link nav-login">Login KI Assistent</a>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Unser Unternehmen</h1>
+            <p>Von der Vision zur Realität - Unsere Reise in die KI-Zukunft</p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline-intro">
+                <h2>Unsere Unternehmensgeschichte</h2>
+                <p>Erfahren Sie mehr über unseren Weg von der klassischen Unternehmensberatung hin zur spezialisierten KI-Expertise</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 1: 2018 Gründung -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-title">Gründung AD'ler Unternehmensberatung</div>
+                        <div class="timeline-description">
+                            Der Grundstein wurde gelegt: Gründung der AD'ler Unternehmensberatung mit dem Fokus auf digitale Transformation und Prozessoptimierung für mittelständische Unternehmen.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: 2018 DSGVO -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-title">DSGVO-Expertise</div>
+                        <div class="timeline-description">
+                            Erfolgreiche Umsetzung zahlreicher Datenschutz-Implementierungsprojekte, als die DSGVO wirksam wurde. Aufbau von Expertise im Bereich rechtskonforme Datenverarbeitung.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: 2019 BI -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-title">Business Intelligence Spezialisierung</div>
+                        <div class="timeline-description">
+                            Intensive Beratung von KMUs im Bereich Business Intelligence. Entwicklung von datengestützten Entscheidungsprozessen und Reporting-Systemen für eine Vielzahl von Unternehmen.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4: 2020 Elternzeit -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-title">Elternzeit & Weiterbildung</div>
+                        <div class="timeline-description">
+                            Elternzeit genutzt für intensive Weiterbildung im Bereich Künstliche Intelligenz und Big Data. Spezialisierung bei AKAD Fernstudium und Zertifizierung als KI-Expertin.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5: 2025 businessKI -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">Gründung businessKI</div>
+                        <div class="timeline-description">
+                            Neugründung als businessKI mit klarem Fokus auf KI-Integration für Unternehmen. Launch des KI-Kompetenzzentrums und spezialisierter KI-Implementierungsprojekte.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="values-intro">
+                <h2>Unsere Werte</h2>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Vertrauen & Transparenz</h3>
+                    <p>Wir bauen langfristige Partnerschaften auf, basierend auf Ehrlichkeit, offener Kommunikation und messbaren Ergebnissen.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Innovation & Pragmatismus</h3>
+                    <p>Wir verbinden neueste KI-Technologien mit praktischen, sofort umsetzbaren Lösungen für Ihren Unternehmenserfolg.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Datenschutz & Ethik</h3>
+                    <p>DSGVO-Konformität und ethische KI-Nutzung stehen bei allen unseren Projekten an erster Stelle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo-white.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Business KI. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

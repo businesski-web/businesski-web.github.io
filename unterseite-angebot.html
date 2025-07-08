@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unser Angebot - Business KI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .page-hero {
+            background: linear-gradient(135deg, var(--moos-gruen) 0%, var(--salbei-gruen) 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--kalk-weiss);
+        }
+
+        .services-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-intro h2 {
+            font-size: 2.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .services-intro p {
+            font-size: 1.2rem;
+            color: var(--dunkelgrau);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .service-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--salbei-gruen), var(--rostrot));
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(107, 143, 113, 0.2);
+            border-color: var(--salbei-gruen);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-box h3 {
+            font-size: 1.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .service-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--dunkelgrau);
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--dunkelgrau);
+            font-size: 0.95rem;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: var(--salbei-gruen);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .nav-link.active {
+            color: var(--rostrot);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <nav class="navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-angebot.html" class="nav-link active">Unser Angebot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-unternehmen.html" class="nav-link">Unternehmen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-kontakt.html" class="nav-link">Kontakt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-karriere.html" class="nav-link">Karriere</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://businesski.ai.tool.center/login" target="_blank" class="nav-link nav-login">Login KI Assistent</a>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Unser KI-Angebot</h1>
+            <p>Maßgeschneiderte KI-Lösungen für Ihren Unternehmenserfolg</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-intro">
+                <h2>Profitieren Sie von unseren Vorgehensmodellen</h2>
+                <p>Drei bewährte Wege zu Ihrer erfolgreichen KI-Integration - von der Strategieentwicklung bis zur vollständigen Implementierung</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service Box 1: KI-Strategie-Workshop -->
+                <div class="service-box">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>KI-Strategie-Workshop</h3>
+                    <p>Entwickeln Sie in unserem intensiven 2-Tages-Workshop eine maßgeschneiderte KI-Strategie, die perfekt zu Ihren Unternehmenszielen passt. Von der Vision bis zur fertigen Roadmap.</p>
+                    <ul class="service-features">
+                        <li>Analyse Ihrer aktuellen Geschäftsprozesse</li>
+                        <li>Identifikation von KI-Potenzialen</li>
+                        <li>Entwicklung einer individuellen KI-Roadmap</li>
+                        <li>Priorisierung nach Aufwand und Nutzen</li>
+                        <li>Konkrete Umsetzungsschritte</li>
+                        <li>ROI-Berechnung für geplante Projekte</li>
+                    </ul>
+                </div>
+
+                <!-- Service Box 2: KI Upskilling -->
+                <div class="service-box">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>KI-Kompetenzzentrum</h3>
+                    <p>Unser 6-monatiges Upskilling-Programm macht Sie und Ihr Team zu KI-Experten. Flexibles Lernen mit direkter Umsetzung in der Praxis.</p>
+                    <ul class="service-features">
+                        <li>6-7 wöchentliche Video-Module</li>
+                        <li>Wöchentliche Live Q&A-Sessions</li>
+                        <li>Community-Zugang zu Gleichgesinnten</li>
+                        <li>Sofort einsetzbare KI-Tools</li>
+                        <li>Praktische Umsetzungsprojekte</li>
+                        <li>Zertifikat nach Abschluss</li>
+                    </ul>
+                </div>
+
+                <!-- Service Box 3: Implementierungsprojekte -->
+                <div class="service-box">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Implementierungs-projekte</h3>
+                    <p>Wir setzen konkrete KI-Projekte in Ihrem Unternehmen um - von der Konzeption bis zur produktiven Nutzung. Vollständig DSGVO-konform und maßgeschneidert.</p>
+                    <ul class="service-features">
+                        <li>Entwicklung unternehmenseigener Chatbots</li>
+                        <li>Business Intelligence Reporting Tools</li>
+                        <li>DSGVO-konforme KI-Agenten</li>
+                        <li>Automatisierte Datenanalyse-Systeme</li>
+                        <li>Kundenservice-Optimierung durch KI</li>
+                        <li>Kontinuierliche Betreuung und Optimierung</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Bereit für Ihre KI-Transformation?</h2>
+            <p>Lassen Sie uns in einem kostenlosen Gespräch herausfinden, welcher Weg der richtige für Ihr Unternehmen ist.</p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/rominaadler/15-min-erstkontakt" target="_blank" class="cta-button">
+                    <i class="fas fa-calendar-alt"></i>
+                    Kostenloses Kennenlerngespräch buchen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo-white.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Business KI. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

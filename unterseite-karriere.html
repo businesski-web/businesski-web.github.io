@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karriere - Business KI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .page-hero {
+            background: linear-gradient(135deg, var(--moos-gruen) 0%, var(--salbei-gruen) 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .career-section {
+            padding: 100px 0;
+            background-color: var(--kalk-weiss);
+        }
+
+        .career-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .career-intro h2 {
+            font-size: 2.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .career-intro p {
+            font-size: 1.2rem;
+            color: var(--dunkelgrau);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--salbei-gruen), var(--rostrot));
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(107, 143, 113, 0.2);
+            border-color: var(--salbei-gruen);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .value-item h3 {
+            font-size: 1.3rem;
+            color: var(--moos-gruen);
+            margin-bottom: 15px;
+        }
+
+        .value-item p {
+            color: var(--dunkelgrau);
+            line-height: 1.6;
+        }
+
+        .jobs-section {
+            padding: 80px 0;
+            background: var(--sand-beige);
+        }
+
+        .jobs-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .jobs-intro h2 {
+            font-size: 2.2rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .no-jobs-box {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            border-left: 6px solid var(--salbei-gruen);
+        }
+
+        .no-jobs-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .no-jobs-box h3 {
+            font-size: 1.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+        }
+
+        .no-jobs-box p {
+            font-size: 1.1rem;
+            color: var(--dunkelgrau);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--rostrot), #d45a34);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+        }
+
+        .contact-info a:hover {
+            background-color: rgba(255,255,255,0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .quote-section-career {
+            background: var(--kalk-weiss);
+            padding: 80px 0;
+            margin: 0;
+        }
+
+        .quote-box-career {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 6px solid var(--salbei-gruen);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .quote-box-career::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--salbei-gruen);
+            font-family: 'Montserrat', serif;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            opacity: 0.3;
+        }
+
+        .quote-career {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--dunkelgrau);
+            line-height: 1.7;
+            text-align: center;
+            margin-left: 40px;
+        }
+
+        .nav-link.active {
+            color: var(--rostrot);
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .value-item {
+                padding: 30px;
+            }
+
+            .no-jobs-box {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="images/logo.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <nav class="navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-angebot.html" class="nav-link">Unser Angebot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-unternehmen.html" class="nav-link">Unternehmen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-kontakt.html" class="nav-link">Kontakt</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="unterseite-karriere.html" class="nav-link active">Karriere</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://businesski.ai.tool.center/login" target="_blank" class="nav-link nav-login">Login KI Assistent</a>
+                        </li>
+                    </ul>
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Karriere</h1>
+            <p>Werde Teil unseres Teams und gestalte die KI-Zukunft mit</p>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section class="career-section">
+        <div class="container">
+            <div class="career-intro">
+                <h2>Werde Teil unseres Teams</h2>
+                <p>Bei businessKI arbeiten Sie an der Spitze der KI-Innovation. Gestalten Sie gemeinsam mit uns die digitale Transformation von Unternehmen und entwickeln Sie sich in einem dynamischen Umfeld weiter.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation & Kreativität</h3>
+                    <p>Arbeiten Sie mit den neuesten KI-Technologien und entwickeln Sie kreative Lösungen für komplexe Herausforderungen.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Teamwork & Expertise</h3>
+                    <p>Profitieren Sie von einem erfahrenen Team und teilen Sie Ihr Wissen in einer kollaborativen Arbeitsumgebung.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Wachstum & Entwicklung</h3>
+                    <p>Kontinuierliche Weiterbildung und persönliche Entwicklung stehen bei uns im Mittelpunkt Ihrer Karriere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <div class="jobs-intro">
+                <h2>Aktuelle Stellenausschreibungen</h2>
+            </div>
+
+            <div class="no-jobs-box">
+                <div class="no-jobs-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Aktuell keine offenen Stellen</h3>
+                <p>Momentan haben wir keine offenen Positionen zu besetzen. Wir sind jedoch immer auf der Suche nach talentierten Menschen, die unsere Vision teilen.</p>
+                <div class="contact-info">
+                    <p><strong>Initiativbewerbung:</strong> Senden Sie uns gerne Ihre Bewerbungsunterlagen an <a href="mailto:ki@businesski.io">ki@businesski.io</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section-career">
+        <div class="container">
+            <div class="quote-box-career">
+                <p class="quote-career">Die Zukunft gehört den Unternehmen, die heute beginnen, KI strategisch einzusetzen. Seien Sie Teil dieser Zukunft und gestalten Sie mit uns den Wandel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Interesse geweckt?</h2>
+            <p>Auch ohne offene Stellen freuen wir uns über Ihr Interesse. Kontaktieren Sie uns für ein unverbindliches Gespräch.</p>
+            <div class="cta-buttons">
+                <a href="mailto:ki@businesski.io" class="cta-button">
+                    <i class="fas fa-envelope"></i>
+                    Initiativbewerbung senden
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo-white.png" alt="business KI Logo" class="logo-image">
+                </div>
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Business KI. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+        
