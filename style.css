@@ -87,6 +87,8 @@ h1, h2, h3, h4, h5, h6 {
     gap: 4px;
     padding: 8px;
     z-index: 1002;
+    background: none;
+    border: none;
 }
 
 .mobile-menu-toggle span {
@@ -116,6 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 30px;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .nav-item {
@@ -791,33 +794,39 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 15px;
     }
 
-    /* Mobile Navigation */
+    /* Mobile Navigation - FIXED */
     .mobile-menu-toggle {
         display: flex;
     }
 
     .nav-list {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
+        height: 100vh;
         background: var(--kalk-weiss);
         flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        border-radius: 0 0 15px 15px;
+        padding: 100px 20px 20px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.2);
+        z-index: 1000;
         gap: 0;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
     }
 
     .nav-list.active {
         display: flex;
+        transform: translateX(0);
     }
 
     .nav-item {
         text-align: center;
-        padding: 10px 0;
+        padding: 20px 0;
         border-bottom: 1px solid rgba(107, 143, 113, 0.1);
+        width: 100%;
     }
 
     .nav-item:last-child {
@@ -826,13 +835,58 @@ h1, h2, h3, h4, h5, h6 {
 
     .nav-link {
         display: block;
-        padding: 15px;
-        font-size: 1rem;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--moos-gruen);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .nav-link:hover {
+        background: rgba(107, 143, 113, 0.1);
+        color: var(--rostrot);
     }
 
     .nav-login {
-        margin-top: 15px;
-        padding: 15px 25px;
+        margin-top: 20px;
+        padding: 18px 30px;
+        background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+        color: white !important;
+        border-radius: 25px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(107, 143, 113, 0.3);
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav-login:hover {
+        background: linear-gradient(135deg, var(--moos-gruen), var(--salbei-gruen));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(107, 143, 113, 0.4);
+    }
+
+    /* Close button für mobile menu */
+    .nav-list::before {
+        content: '×';
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: var(--moos-gruen);
+        cursor: pointer;
+        z-index: 1001;
+        background: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     /* Hero Section Mobile */
@@ -963,6 +1017,14 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+    }
+
+    /* Body lock when menu is open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
     }
 }
 
