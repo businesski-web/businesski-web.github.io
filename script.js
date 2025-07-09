@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Prevent body scroll when menu is open
             if (navList.classList.contains('active')) {
-                body.style.overflow = 'hidden';
+                body.classList.add('menu-open');
             } else {
-                body.style.overflow = '';
+                body.classList.remove('menu-open');
             }
         });
 
@@ -29,8 +29,17 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function() {
                 mobileMenuToggle.classList.remove('active');
                 navList.classList.remove('active');
-                body.style.overflow = '';
+                body.classList.remove('menu-open');
             });
+        });
+
+        // Close mobile menu when clicking on the close button (X)
+        navList.addEventListener('click', function(e) {
+            if (e.target === navList || e.target.textContent === '×') {
+                mobileMenuToggle.classList.remove('active');
+                navList.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
         });
 
         // Close mobile menu when clicking outside
@@ -38,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!mobileMenuToggle.contains(e.target) && !navList.contains(e.target)) {
                 mobileMenuToggle.classList.remove('active');
                 navList.classList.remove('active');
-                body.style.overflow = '';
+                body.classList.remove('menu-open');
             }
         });
 
@@ -47,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth > 768) {
                 mobileMenuToggle.classList.remove('active');
                 navList.classList.remove('active');
-                body.style.overflow = '';
+                body.classList.remove('menu-open');
             }
         });
 
@@ -56,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Escape' && navList.classList.contains('active')) {
                 mobileMenuToggle.classList.remove('active');
                 navList.classList.remove('active');
-                body.style.overflow = '';
+                body.classList.remove('menu-open');
             }
         });
     }
@@ -290,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentWidth > 768) {
                 mobileMenuToggle.classList.remove('active');
                 navList.classList.remove('active');
-                body.style.overflow = '';
+                body.classList.remove('menu-open');
             }
             
             // Trigger a reflow for any layout-dependent elements
@@ -419,4 +428,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Viewport width:', window.innerWidth);
     console.log('Touch support:', 'ontouchstart' in window);
 });
-    
+        
