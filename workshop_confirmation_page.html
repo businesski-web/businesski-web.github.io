@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmeldung bestätigt - KI-Workshop businessKI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --salbei-gruen: #6B8F71;
+            --moos-gruen: #335C4D;
+            --sand-beige: #E7E3D4;
+            --kalk-weiss: #F9F9F6;
+            --rostrot: #C4512D;
+            --dunkelgrau: #2A2A2A;
+            --hellgrau: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dunkelgrau);
+            background-color: var(--kalk-weiss);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(249, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(107, 143, 113, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 55px;
+            width: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .confirmation-header {
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confirmation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="network" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/><line x1="5" y1="5" x2="15" y2="15" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23network)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--rostrot);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .confirmation-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .confirmation-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .confirmation-body {
+            padding: 50px 40px;
+        }
+
+        .next-steps-title {
+            font-size: 1.8rem;
+            color: var(--moos-gruen);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background: var(--kalk-weiss);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--salbei-gruen), var(--rostrot));
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--salbei-gruen);
+            box-shadow: 0 15px 30px rgba(107, 143, 113, 0.15);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--rostrot), #d45a34);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            color: var(--moos-gruen);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .step-description {
+            color: var(--dunkelgrau);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .workshop-details {
+            background: var(--sand-beige);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--rostrot);
+        }
+
+        .workshop-details h3 {
+            font-size: 1.5rem;
+            color: var(--moos-gruen);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .detail-icon {
+            color: var(--salbei-gruen);
+            margin-right: 15px;
+            font-size: 1.3rem;
+            width: 25px;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            color: var(--moos-gruen);
+        }
+
+        .email-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--salbei-gruen);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .email-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--salbei-gruen), var(--moos-gruen));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .email-info h4 {
+            font-size: 1.3rem;
+            color: var(--moos-gruen);
+            margin-bottom: 15px;
+        }
+
+        .email-info p {
+            color: var(--dunkelgrau);
+            line-height: 1.6;
+        }
+
+        .spam-warning {
+            background: linear-gradient(135deg, #FFF3CD, #FFEAA7);
+            border: 2px solid #F39C12;
+            color: #8B4513;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .spam-warning i {
+            font-size: 1.5rem;
+            color: #F39C12;
+            flex-shrink: 0;
+        }
+
+        .spam-warning-text {
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--rostrot), #d45a34);
+            color: white;
+            padding: 16px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 200px;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(196, 69, 45, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: var(--moos-gruen);
+            border: 2px solid var(--salbei-gruen);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--kalk-weiss);
+            color: var(--moos-gruen);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid var(--sand-beige);
+            color: var(--dunkelgrau);
+        }
+
+        .contact-info h4 {
+            color: var(--moos-gruen);
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: var(--rostrot);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--moos-gruen);
+            color: white;
+            padding: 40px 0 25px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--rostrot);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-content {
+                padding: 100px 0 60px;
+            }
+
+            .confirmation-header {
+                padding: 40px 30px;
+            }
+
+            .confirmation-title {
+                font-size: 2rem;
+            }
+
+            .confirmation-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .confirmation-body {
+                padding: 40px 30px;
+            }
+
+            .workshop-details {
+                padding: 25px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                min-width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-header {
+                padding: 30px 20px;
+            }
+
+            .confirmation-body {
+                padding: 30px 20px;
+            }
+
+            .confirmation-title {
+                font-size: 1.8rem;
+            }
+
+            .step-card {
+                padding: 25px;
+            }
+
+            .workshop-details {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="images/logo.png" alt="business KI Logo" class="logo-image">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="confirmation-container">
+                <!-- Confirmation Header -->
+                <div class="confirmation-header">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h1 class="confirmation-title">Herzlichen Glückwunsch!</h1>
+                    <p class="confirmation-subtitle">Ihr Platz beim KI-Workshop "Verwandeln Sie Routine in Freiheit" ist gesichert</p>
+                </div>
+
+                <!-- Confirmation Body -->
+                <div class="confirmation-body">
+                    <!-- Email Information -->
+                    <div class="email-info">
+                        <div class="email-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Bestätigungs-E-Mail unterwegs</h4>
+                        <p>Sie erhalten in wenigen Minuten eine E-Mail mit allen Workshop-Details und dem direkten Zoom-Link.</p>
+                        
+                        <div class="spam-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div class="spam-warning-text">
+                                <strong>Wichtig:</strong> Bitte überprüfen Sie auch Ihren Spam-Ordner, da E-Mails manchmal dort landen können.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Workshop Details -->
+                    <div class="workshop-details">
+                        <h3><i class="fas fa-calendar-check"></i> Workshop-Details</h3>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt detail-icon"></i>
+                            <span>Datum: <span class="detail-value">18. Juli 2025</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock detail-icon"></i>
+                            <span>Uhrzeit: <span class="detail-value">18:00 Uhr (MESZ)</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-laptop detail-icon"></i>
+                            <span>Format: <span class="detail-value">Live Online-Workshop via Zoom</span></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users detail-icon"></i>
+                            <span>Teilnehmer: <span class="detail-value">Begrenzt auf 50 Personen</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <h2 class="next-steps-title">Ihre nächsten Schritte</h2>
+                    
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4 class="step-title">E-Mail überprüfen</h4>
+                            <p class="step-description">Schauen Sie in Ihr E-Mail-Postfach und falls nötig in den Spam-Ordner. Die Bestätigung sollte in wenigen Minuten ankommen.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4 class="step-title">Termin eintragen</h4>
+                            <p class="step-description">Tragen Sie den Workshop-Termin in Ihren Kalender ein, damit Sie ihn nicht verpassen.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4 class="step-title">Umfrage ausfüllen</h4>
+                            <p class="step-description">Helfen Sie uns mit einer kurzen 2-Minuten-Umfrage, den Workshop optimal auf Ihre Bedürfnisse auszurichten.</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="cta-buttons">
+                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAAIEZt3pUQlJPU1dPMjJQVU00VE5ZUzFYNE45SEZWTS4u" 
+                           target="_blank" class="cta-button">
+                            <i class="fas fa-clipboard-list"></i>
+                            Kurze Umfrage ausfüllen
+                        </a>
+                        <a href="index.html" class="cta-button secondary">
+                            <i class="fas fa-home"></i>
+                            Zurück zur Startseite
+                        </a>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h4>Fragen oder Probleme?</h4>
+                        <p>
+                            Kontaktieren Sie uns gerne unter<br>
+                            <a href="mailto:ki@businesski.io">ki@businesski.io</a> oder 
+                            <a href="tel:+4917682243206">+49 176 822 43 206</a>
+                        </p>
+                        <p style="margin-top: 15px; font-style: italic; color: var(--salbei-gruen);">
+                            Wir freuen uns darauf, Sie live im Workshop zu sehen!<br>
+                            <strong>Romina Adler</strong> - KI-Expertin bei businessKI
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="mailto:ki@businesski.io" class="footer-link">ki@businesski.io</a>
+                <a href="datenschutz.html" class="footer-link">Datenschutz</a>
+                <a href="index.html" class="footer-link">businesski.io</a>
+            </div>
+            <div>
+                © 2025 businessKI - Das KI-Kompetenzzentrum<br>
+                Talstr. 56, 45475 Mülheim an der Ruhr
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Optional: Auto-redirect to this page after form submission
+        // Add this to your existing webinar landing page JavaScript:
+        
+        /*
+        // In your existing form submission handler, replace the success alert with:
+        window.location.href = 'workshop-bestaetigung.html';
+        */
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate step cards on load
+            const stepCards = document.querySelectorAll('.step-card');
+            stepCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
+
+            // Track button clicks
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const buttonType = this.textContent.includes('Umfrage') ? 'survey' : 'homepage';
+                    console.log(`Confirmation page action: ${buttonType}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
