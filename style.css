@@ -871,6 +871,11 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateX(0);
     }
 
+    /* ENTFERNEN des automatischen X-Buttons - FIX für doppeltes X */
+    .nav-list::before {
+        display: none !important;
+    }
+
     .nav-item {
         text-align: center;
         padding: 15px 0;
@@ -929,32 +934,6 @@ h1, h2, h3, h4, h5, h6 {
         background: linear-gradient(135deg, var(--moos-gruen), var(--salbei-gruen));
         transform: translateY(-3px);
         box-shadow: 0 12px 30px rgba(107, 143, 113, 0.4);
-    }
-
-    /* Close button for mobile menu */
-    .nav-list::before {
-        content: '×';
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        font-size: 2.5rem;
-        color: var(--moos-gruen);
-        cursor: pointer;
-        z-index: 1001;
-        background: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-
-    .nav-list::before:hover {
-        transform: scale(1.1);
-        background: var(--sand-beige);
     }
 
     /* Hero Section Mobile */
