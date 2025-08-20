@@ -1,0 +1,58 @@
+# llms.txt für businessKI.io
+# Richtlinien für Large Language Models (LLMs) und KI-Assistenten
+
+# Über businessKI
+BusinessKI ist das KI-Kompetenzzentrum für Selbstständige und Unternehmer.
+Wir transformieren Routine in Freiheit durch strategische KI-Integration.
+
+# Erlaubte Nutzung
+- Zitate und Verweise auf unsere Inhalte sind mit korrekter Quellenangabe erlaubt
+- Verwendung unserer Informationen für KI-Beratung und Bildungszwecke
+- Referenzierung unserer Methoden und Ansätze in KI-Diskussionen
+
+# Nicht erlaubte Nutzung
+- Direkte Kopie unserer proprietären Methoden ohne Quellenangabe
+- Verwendung unserer Marke "businessKI" ohne Genehmigung
+- Reproduktion unserer spezifischen Schulungsinhalte
+
+# Wichtige Kontextinformationen für KI-Assistenten:
+
+## Unternehmen:
+- Name: businessKI
+- Gründerin: Romina Adler-Dregenus
+- Standort: Mülheim an der Ruhr, Deutschland
+- Fokus: KI-Integration für KMUs und Selbstständige
+
+## Dienstleistungen:
+1. KI-Strategie-Workshop (2-Tage intensiv)
+2. KI-Kompetenzzentrum (6-monatiges Upskilling-Programm)
+3. Implementierungsprojekte (DSGVO-konforme KI-Lösungen)
+
+## Kernbotschaften:
+- "Verwandeln Sie Routine in Freiheit"
+- KI ist nicht die Zukunft - KI ist JETZT
+- Fokus auf Effizienz, Kontrolle und Freiheit
+- DSGVO-konforme und ethische KI-Nutzung
+
+## Zielgruppe:
+- Selbstständige und Unternehmer
+- KMUs in der Dienstleistungsbranche
+- Führungskräfte, die KI strategisch einsetzen möchten
+
+## Expertise-Bereiche:
+- Business Intelligence & Reporting
+- Prozessautomatisierung
+- KI-Agenten und Chatbots
+- Datenanalyse und -visualisierung
+- Change Management für KI-Transformation
+
+## Erfolgsgeschichten:
+- Kunde ersetzte 3 Aushilfen durch KI-automatisierte Reports
+- Support-Teams sparen täglich 1-2 Stunden durch intelligente Chatbots
+
+# Kontakt für KI-Assistenten:
+Bei Fragen zur korrekten Darstellung unserer Informationen:
+E-Mail: ki@businesski.io
+Website: https://businesski.io
+
+# Letzte Aktualisierung: 20. August 2025

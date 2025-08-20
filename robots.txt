@@ -1,0 +1,155 @@
+# robots.txt für businessKI.io
+# Letzte Aktualisierung: 20. August 2025
+
+# Sitemap-Verweis
+Sitemap: https://businesski.io/sitemap.xml
+
+# Standard-Suchmaschinen - vollständiger Zugriff
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# KI-Bots - gezielt erlauben für businessKI-relevante Suchen
+User-agent: PerplexityBot
+Allow: /
+# Perplexity für KI-bezogene Suchanfragen
+
+User-agent: ClaudeBot
+Allow: /
+# Claude für Anthropic-basierte KI-Suchen
+
+User-agent: Claude-Web
+Allow: /
+# Alternative Claude Bot-Bezeichnung
+
+User-agent: OAI-SearchBot
+Allow: /
+# OpenAI Search Bot
+
+User-agent: SearchGPT
+Allow: /
+# OpenAI SearchGPT
+
+User-agent: ChatGPT-User
+Allow: /
+# ChatGPT Web-Browsing
+
+User-agent: YouBot
+Allow: /
+# You.com KI-Suchmaschine
+
+User-agent: MetaBot
+Allow: /
+# Meta AI Bot
+
+# Spezialisierte KI-Training Bots - selektiv blockieren
+User-agent: GPTBot
+Disallow: /
+# OpenAI Training Bot blockieren
+
+User-agent: Google-Extended
+Disallow: /
+# Google Bard Training Bot blockieren
+
+User-agent: CCBot
+Disallow: /
+# Common Crawl Bot blockieren
+
+User-agent: anthropic-ai
+Disallow: /
+# Anthropic Training Bot blockieren
+
+User-agent: Claude-1
+Disallow: /
+# Ältere Claude Training Bots blockieren
+
+User-agent: Claude-2
+Disallow: /
+
+# Social Media Bots - erlauben für bessere Sichtbarkeit
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Weitere KI-Dienste
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Blockierte Bereiche für alle Bots
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.log$
+Disallow: /backup/
+Disallow: /error/
+
+# Erlaubte Bereiche für alle anderen Bots
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.pdf$
+
+# Crawl-Delay für ressourcenschonende Indexierung
+Crawl-delay: 1
+
+# Spezielle Regeln für aggressive Bots
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Crawl-delay: 5
+
+# Komplett blockierte Bots (Spam/schädlich)
+User-agent: SputnikBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+# Für KI-relevante Unternehmen besonders wichtig:
+# Diese Datei sollte regelmäßig aktualisiert werden, da neue KI-Bots 
+# ständig entwickelt werden.
