@@ -589,8 +589,8 @@
                         <div class="date-icon">
                             <i class="fas fa-calendar-alt"></i>
                             <div>
-                                <div class="date-text">16. September 2026</div>
-                                <div class="time-text">15:00 Uhr (MESZ)</div>
+                                <div class="date-text">18. November 2026</div>
+                                <div class="time-text">12:30 Uhr (MEZ)</div>
                             </div>
                         </div>
                     </div>
@@ -761,7 +761,7 @@
                 company: company || '',
                 phone: phone || '',
                 workshop: 'KI-Workshop "Verwandeln Sie Routine in Freiheit"',
-                date: '19. August 2026, 15:00 Uhr',
+                date: '18. November 2026, 12:30 Uhr',
                 privacyConsent: true,
                 timestamp: new Date().toISOString()
             };
@@ -776,7 +776,7 @@
             
             try {
                 // Send data to webhook
-                const response = await fetch('https://hook.eu2.make.com/g8zoa7sb5glp5ocwffnguohye4y2dmxc', {
+                const response = await fetch('https://n8n.ad-ler.com/webhook/webinar-anmeldung-w3n7', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
